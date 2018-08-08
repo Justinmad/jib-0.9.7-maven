@@ -1,0 +1,53 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>example</groupId>
+  <artifactId>helloworld</artifactId>
+  <version>2</version>
+
+  <properties>
+    <jib-maven-plugin.version>0.9.7-SNAPSHOT</jib-maven-plugin.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>23.6-jre</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+      <!-- Jib -->
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>${jib-maven-plugin.version}</version>
+        <configuration>
+          <from>
+            <image>registry.cn-hangzhou.aliyuncs.com/java-jdk/openjdk:8</image>
+          </from>
+          <to>
+            <image>registry.cn-hangzhou.aliyuncs.com/z-young/jib-example:${project.version}</image>
+          </to>
+          <container>
+            <mainClass>example.HelloWorld</mainClass>
+            <environment>
+              <hehehe>asdasdasdasd</hehehe>
+            </environment>
+          </container>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
